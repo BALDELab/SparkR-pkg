@@ -301,7 +301,6 @@ setMethod("saveAsTextFile",
 					function(rdd, path) {
 						.jcall(getJRDD(rdd),
 									 "V",
-								#	 "Lorg/apache/spark/api/java/javaRDD;",
 									 "saveAsTextFile",
 									 path)
 					})
