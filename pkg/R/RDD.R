@@ -290,6 +290,21 @@ setMethod("collectPartition",
             convertJListToRList(jList, flatten = TRUE)
           })
 
+#' @export
+setGeneric("saveAsTextFile",
+					 function(rdd, path) { 
+					 standardGeneric("saveAsTextFile")
+					 })
+
+setMethod("saveAsTextFile",
+					signature(rdd = "RDD", path = "character"),
+					function(rdd, path) {
+						.jcall(getJRDD(rdd),
+									 "V",
+								#	 "Lorg/apache/spark/api/java/javaRDD;",
+									 "saveAsTextFile",
+									 path)
+					})
 
 #' Return the number of elements in the RDD.
 #'
