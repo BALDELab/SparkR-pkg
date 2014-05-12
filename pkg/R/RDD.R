@@ -290,12 +290,19 @@ setMethod("collectPartition",
             convertJListToRList(jList, flatten = TRUE)
           })
 
+#' Save the contents of an RDD as a text file
+#' 
+#' @param rdd the RDD to write out
+#' @param path the path to write to (accepts URI)
+#' @rdname saveAsTextFile
 #' @export
 setGeneric("saveAsTextFile",
 					 function(rdd, path) { 
 					 standardGeneric("saveAsTextFile")
 					 })
 
+#' @rdname saveAsTextFile
+#' @aliases saveAsTextFile,RDD-method
 setMethod("saveAsTextFile",
 					signature(rdd = "RDD", path = "character"),
 					function(rdd, path) {
